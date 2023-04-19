@@ -1,0 +1,23 @@
+{% extends 'structure_short.html' %}
+
+{% block formulario %}
+        
+    <h1> Lista de productos</h1>
+
+    {% if products %}
+    <ul>
+        {% for product in products %}
+            {% if product.name and product.price and product.image %}
+                <li> 
+                    <p> {{product.name}}</p>
+                    <p> {{product.price}}</p>
+                    <img src="{{ product.image.url }}">
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>No products available.</p>
+    {% endif %}
+
+{% endblock formulario %}
