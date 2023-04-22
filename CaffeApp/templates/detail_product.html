@@ -1,0 +1,17 @@
+{% extends 'structure_short.html' %}
+
+{% block formulario %}
+
+<h1> Vista en deltalle del producto</h1>
+
+<h3> Producto: {{product.name}}</h3>
+<h3> Detalles: {{product.description}}</h3>
+<h3> Precio: {{product.price}}</h3>
+<h3><img src="{{ product.image.url }}"></h3>
+<div>
+    <button>
+        <a href="{% url 'lists-product' %}">Volver</a>
+    </button>
+</div>
+
+{% endblock formulario %}

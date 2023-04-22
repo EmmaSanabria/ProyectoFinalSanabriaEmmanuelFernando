@@ -10,11 +10,11 @@ class Client(models.Model):
     
 class Product(models.Model):
     name = models.CharField(max_length=40, unique=True)
-    description= models.TextField(max_length=240)
+    description = models.TextField(max_length=240)
     price = models.IntegerField()
-    image = models.ImageField(null= True, blank= True, default= 'image')
+    image = models.ImageField(upload_to='media/', null=True, blank=True, default='image')
 
-    def __str__(self):
+    def _str_(self):
         return f'{self.name} --> {self.price}'
     
 class Reservation(models.Model):

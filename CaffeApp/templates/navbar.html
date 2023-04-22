@@ -6,45 +6,44 @@
           <div class="col-12">
               <nav class="main-nav">
                   <!-- ***** Logo Start ***** -->
-                  <a href="{% static 'index.html' %}" class="logo">
+                  <a href="" class="logo">
                       <img src="{% static 'assets/images/klassy-logo.png' %}" align="klassy cafe html template">
                   </a>
                   <!-- ***** Logo End ***** -->
 
-
-
                   <!-- ***** Menu Start ***** -->
                   <ul class="nav">
-                      <li><a href="{% url 'shop' %}" class="active">Home</a></li>
+                      <li><a href="{% url 'index' %}" class="active">Home</a></li>
                       <li class="scroll-to-section"><a href="#about">About</a></li>
-                       
-                  <!-- 
-                      <li class="submenu">
-                          <a href="javascript:;">Drop Down</a>
-                          <ul>
-                              <li><a href="#">Drop Down Page 1</a></li>
-                              <li><a href="#">Drop Down Page 2</a></li>
-                              <li><a href="#">Drop Down Page 3</a></li>
-                          </ul>
-                      </li>
-                  -->
+                  
                       <li class="scroll-to-section"><a href="#menu">Menu</a></li>
                       <li class="scroll-to-section"><a href="#chefs">Chefs</a></li> 
                       <li class="submenu">
                           <a href="javascript:;">Options</a>
                           <ul>
-                              <li><a href="{% url 'add-product' %}">Agregar producto</a></li>
-                              <li><a href="{% url 'shop' %}">Modificar</a></li>
+                              <li><a href="{% url 'create-product' %}">Agregar producto</a></li>
+                              <li><a href="{% url 'lists-product' %}">Lista de productos</a></li>
                               <li><a href="#">Features Page 3</a></li>
                               <li><a href="#">Features Page 4</a></li>
                           </ul>
                       </li>
-                      <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
                       <li><a href="{% url 'contact_us' %}">Contact Us</a></li> 
+                        {% if user.is_authenticated %}                           
+                            <a class="btn btn-primary" href="{% url 'logout' %}"> Logout</a>
+                            <li class="submenu">
+                                <a href="javascript:;">{{user.username}}</a>
+                                <ul>
+                                    <li><a href="#">Drop Down Page 1</a></li>
+                                    <li><a href="#">Drop Down Page 2</a></li>
+                                    <li><a href="#">Drop Down Page 3</a></li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <a class="btn btn-primary" href="{% url 'login' %}"> Login</a>
+                            <a class="btn btn-primary" href="{% url 'register' %}"> Register</a>
+                        {% endif %}
                   </ul>        
-                  <a class='menu-trigger'>
-                      <span>Menu</span>
-                  </a>
+                                       
                   <!-- ***** Menu End ***** -->
               </nav>
           </div>
