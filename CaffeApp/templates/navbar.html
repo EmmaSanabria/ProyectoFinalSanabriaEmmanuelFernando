@@ -23,8 +23,8 @@
                           <ul>
                               <li><a href="{% url 'create-product' %}">Agregar producto</a></li>
                               <li><a href="{% url 'lists-product' %}">Lista de productos</a></li>
-                              <li><a href="#">Features Page 3</a></li>
-                              <li><a href="#">Features Page 4</a></li>
+                              <li><a href="{% url 'lists-staff' %}">Lista Staff</a></li>
+                              <li><a href="{% url 'create-staff' %}">Crear Staff</a></li>
                           </ul>
                       </li>
                       <li><a href="{% url 'contact_us' %}">Contact Us</a></li> 
@@ -33,7 +33,7 @@
                             <li class="submenu">
                                 <a href="javascript:;">{{user.username}}</a>
                                 <ul>
-                                    <li><a href="#">Drop Down Page 1</a></li>
+                                    <li><a href="{% url 'edit-user' %}">Editar Perfil</a></li>
                                     <li><a href="#">Drop Down Page 2</a></li>
                                     <li><a href="#">Drop Down Page 3</a></li>
                                 </ul>

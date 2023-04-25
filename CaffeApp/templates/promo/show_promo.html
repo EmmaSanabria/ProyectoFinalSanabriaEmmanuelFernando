@@ -1,0 +1,34 @@
+{% extends 'structure_short.html' %}
+
+{% block formulario %}
+        
+    <h1> Lista de promocionos</h1>
+
+    {% if promo %}
+    <ul>
+        {% for promocion in promo %}
+            {% if promocion.name and promocion.price %}
+                <li> 
+                    <p> {{promocion.name}}</p>
+                    <p> {{promocion.price}}</p>
+                    <img src="{{ promocion.image.url }}">
+                </li>
+                <div style="display: flex; column-gap: 5px;">
+                    <button>
+                        <a href="{% url 'delete-promo' promocion.id %}">Eliminar</a> 
+                    </button>
+                    <button>
+                        <a href="{% url 'update-promo' promocion.id %}"> Editar </a> 
+                    </button>
+                    <button>
+                        <a href="{% url 'detail-promo' promocion.id %}"> Mas informacion </a> 
+                    </button>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>No promo available.</p>
+    {% endif %}
+
+{% endblock formulario %}

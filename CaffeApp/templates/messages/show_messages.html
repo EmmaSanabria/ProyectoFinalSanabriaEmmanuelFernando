@@ -1,0 +1,32 @@
+{% extends 'structure_short.html' %}
+
+{% block formulario %}
+        
+    <h1> Lista de Reservas</h1>
+
+    {% if messages %}
+    <ul>
+        {% for reserv in messages %}
+            {% if reserv.name and reserv.date %}
+                <li> 
+                    <p> Reserva de: {{reserv.name}}</p>
+                    <p> Fecha: {{reserv.date}}</p>
+                    <p> Hora: {{reserv.time}}</p>
+                    <p> Cantidad de comensales: {{reserv.number_guests}}</p>
+                </li>
+                <div style="display: flex; column-gap: 5px;">
+                    <button>
+                        <a href="{% url 'delete-messages' reserv.id %}">Eliminar</a> 
+                    </button>
+                    <button>
+                        <a href="{% url 'detail-messages' reserv.id %}"> Mas informacion </a> 
+                    </button>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>No reservas available.</p>
+    {% endif %}
+
+{% endblock formulario %}

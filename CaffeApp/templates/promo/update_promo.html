@@ -1,0 +1,14 @@
+{% extends 'structure_short.html' %}
+
+{% block formulario %}
+
+<form action="{% url 'update-promo' promo.id %}" method="POST" enctype = "multipart/form-data">
+    <h1>Editando: {{promo.name}}</h1>
+    {{form.as_p}} {% csrf_token %}
+
+    <input type="submit" value="Actualizar">
+
+</form>
+
+
+{% endblock formulario %}

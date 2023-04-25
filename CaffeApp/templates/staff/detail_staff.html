@@ -1,0 +1,19 @@
+{% extends 'structure_short.html' %}
+
+{% block formulario %}
+
+<h1> Vista en deltalle del staff</h1>
+
+<h3> Nombre: {{Staff.name}}</h3>
+<h3> Apellido: {{Staff.last_name}}</h3>
+<h3> Puesto: {{Staff.job}}</h3>
+<h3> Horario laboral: {{Staff.workshift}}</h3>
+<h3> Cumpleaños: {{Staff.age}}</h3>
+<h3><img src="{{ Staff.image.url }}"></h3>
+<div>
+    <button>
+        <a href="{% url 'lists-staff' %}">Volver</a>
+    </button>
+</div>
+
+{% endblock formulario %}

@@ -1,0 +1,14 @@
+{% extends 'structure_short.html' %}
+
+{% block formulario %}
+
+<form method="POST">
+    <h1>Editando: {{product.name}}</h1>
+    {{miFormulario.as_p}} {% csrf_token %}
+
+    <input type="submit" value="Actualizar">
+
+</form>
+
+
+{% endblock formulario %}

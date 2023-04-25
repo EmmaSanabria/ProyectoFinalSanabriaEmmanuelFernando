@@ -1,0 +1,13 @@
+{% extends 'structure_short.html' %}
+
+{% block formulario %}
+<div style="display: flex; column-gap: 5px;">
+    <form method="POST">{% csrf_token %}
+        <p>¿Esta seguro que desea eliminar el staff?</p>
+
+            <button type="submit">Confirmar</button>
+            <button><a href="{% url 'lists-staff' %}">Cancelar</a></button>
+
+    </form>
+</div>
+{% endblock formulario %}

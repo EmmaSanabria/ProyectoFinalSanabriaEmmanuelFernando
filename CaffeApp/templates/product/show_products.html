@@ -1,0 +1,51 @@
+{% extends 'structure_short.html' %}
+
+{% block formulario %}
+        
+    
+    <html>
+    <title>W3.CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <body>
+        <h1> Lista de productos</h1>
+
+        <div class="w3-ul w3-hoverable">>
+            
+            <ul class="w3-ul w3-hoverable">
+            
+                {% if products %}
+                <ul class="w3-ul w3-hoverable">>
+                    {% for product in products %}
+                        {% if product.name and product.price and product.image %}
+                            <li> 
+                                <p> {{product.name}}  {{product.price}}</p>
+                                <img src="{{ product.image.url }}">
+                            </li>
+                            <div style="display: flex; column-gap: 5px;">
+                                <button>
+                                    <a href="{% url 'delete-product' product.id %}">Eliminar</a> 
+                                </button>
+                                <button>
+                                    <a href="{% url 'update-product' product.id %}"> Editar </a> 
+                                </button>
+                                <button>
+                                    <a href="{% url 'detail-product' product.id %}"> Mas informacion </a> 
+                                </button>
+              </ul>
+                        {% endif %}
+                        {% endfor %}
+         </div>
+
+                {% else %}
+                <p>No products available.</p>
+            {% endif %}
+          
+    </ul>
+   
+
+            
+    </body>
+    </html>
+
+{% endblock formulario %}

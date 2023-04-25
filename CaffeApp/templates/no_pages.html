@@ -1,0 +1,16 @@
+{% extends 'structure_short.html' %}
+
+{% block formulario %}
+ 
+<section class="error">
+    <div class="error__container">
+      <h1 class="error__title">¡Oops!</h1>
+      <p class="error__message">La página "{{ page }}" que estás buscando no existe en este sitio web.</p>
+      <a href="{% url 'index' %}" class="btn btn--primary error__button">Volver a la página de inicio</a>
+    </div>
+  </section>
+
+
+  
+
+{% endblock formulario %}

@@ -1,0 +1,13 @@
+{% extends 'structure_short.html' %}
+
+{% block formulario %}
+
+<form action="{% url 'register' %}" method="POST">
+    
+    {{user_creation_form.as_p}} {% csrf_token %}
+
+    <button type="submit">Registrarse </button>
+</form>
+
+
+{% endblock formulario %}

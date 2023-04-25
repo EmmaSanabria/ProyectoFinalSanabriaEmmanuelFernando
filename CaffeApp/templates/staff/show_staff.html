@@ -1,0 +1,33 @@
+{% extends 'structure_short.html' %}
+
+{% block formulario %}
+        
+    <h1> Lista de staff</h1>
+
+    {% if Staff %}
+    <ul>
+        {% for employee in Staff %}
+            {% if employee.name and employee.last_name %}
+                <li> 
+                    <p> {{employee.name}} {{employee.last_name}}</p>
+                    <img src="{{ employee.image.url }}">
+                </li>
+                    <div style="display: flex; column-gap: 5px;">
+                        <button>
+                            <a href="{% url 'delete-staff' employee.id %}">Eliminar</a> 
+                        </button>
+                        <button>
+                            <a href="{% url 'update-staff' employee.id %}"> Editar </a> 
+                        </button>
+                        <button>
+                            <a href="{% url 'detail-staff' employee.id %}"> Mas informacion </a> 
+                        </button>
+                    </div>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>No staff available.</p>
+    {% endif %}
+
+{% endblock formulario %}

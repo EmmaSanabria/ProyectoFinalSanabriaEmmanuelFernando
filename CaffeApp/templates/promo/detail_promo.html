@@ -1,0 +1,19 @@
+{% extends 'structure_short.html' %}
+
+{% block formulario %}
+
+<h1> Vista en deltalle de la Promocion</h1>
+
+<h3> Producto: {{promo.name}}</h3>
+<h3> Detalles: {{promo.description}}</h3>
+<h3> Precio: {{promo.price}}</h3>
+<h3> Disponible: {{promo.available}}</h3>
+<h3> Opcion vegetariana: {{promo.veggie_option}}</h3>
+<h3><img src="{{ promo.image.url }}"></h3>
+<div>
+    <button>
+        <a href="{% url 'lists-promo' %}">Volver</a>
+    </button>
+</div>
+
+{% endblock formulario %}

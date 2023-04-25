@@ -1,29 +1,27 @@
 from django.db import models
 
-class Client(models.Model):
-    name = models.CharField(max_length=40)
-    password = models.CharField(max_length=15)
-    email = models.EmailField()
-    
-    def __str__(self):
-        return f'{self.name}'
-    
 class Product(models.Model):
     name = models.CharField(max_length=40, unique=True)
     description = models.TextField(max_length=240)
     price = models.IntegerField()
-    image = models.ImageField(upload_to='media/', null=True, blank=True, default='image')
-
+    available_choices = ( 
+        ('avaible', 'Disponoble'),
+        ('not avaible', 'No disponible')
+    )
+    available = models.CharField(max_length=15, choices= available_choices )
+    veggie_option = models.CharField(max_length=15, choices= available_choices )
+    image = models.ImageField(upload_to='product/', null=True, blank=True, default='image')
+    
     def _str_(self):
         return f'{self.name} --> {self.price}'
     
-class Reservation(models.Model):
-    name = models.CharField(max_length=50, unique=True)
+class Messages(models.Model):
+    name = models.CharField(max_length=50)
     email = models.EmailField()
     phone = models.CharField(max_length=20)
     number_guests = models.IntegerField()
     date = models.DateField()
-    time_choices =  (
+    time_choices =  ( 
         ('10:00', '10:00 AM'),
         ('11:00', '11:00 AM'),
         ('12:00', '12:00 PM'),
@@ -41,3 +39,33 @@ class Reservation(models.Model):
     def __str__(self):
         return self.name
         
+class Staff(models.Model):
+    name = models.CharField(max_length=40)
+    last_name = models.CharField(max_length=40)
+    job = models.CharField(max_length=40)
+    workshift_choices = ( 
+        ('morning', 'Mañana'),
+        ('evening', 'Tarde'),
+    )
+    workshift = models.CharField(max_length=15, choices= workshift_choices )
+    age = models.IntegerField()
+    image = models.ImageField(upload_to='staff/', null=True, blank=True, default='image')
+    
+    def __str__(self):
+        return f" {self.name} -- {self.last_name}"
+    
+class Promo_menu(models.Model):
+    name = models.CharField(max_length=40, unique=True)
+    description = models.TextField(max_length=240)
+    price = models.IntegerField()
+    choices = ( 
+        ('avaible', 'Disponoble'),
+        ('not avaible', 'No disponible')
+    )
+    available = models.CharField(max_length=15, choices= choices )
+    veggie_option = models.CharField(max_length=15, choices= choices )
+    image = models.ImageField(upload_to='promo/', null=True, blank=True, default='image')
+    
+    def _str_(self):
+        return f'{self.name} --> {self.price}'
+

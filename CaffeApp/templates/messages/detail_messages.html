@@ -1,0 +1,21 @@
+{% extends 'structure_short.html' %}
+
+{% block formulario %}
+
+<h1> Vista en deltalle del reservation</h1>
+
+<h3> Nombre: {{messages.name}}</h3>
+<h3> Email: {{messages.email}}</h3>
+<h3> Telefono: {{messages.phone}}</h3>
+<h3> Cantidad de comensales: {{messages.number_guests}}</h3>
+<h3> Fecha: {{messages.date}}</h3>
+<h3> Horario de reserva: {{messages.time}}</h3>
+<h3> Mensaje: {{reservation.message}}</h3>
+<div>
+    <button>
+        <a href="{% url 'lists-messages' %}">Volver</a>
+    </button>
+</div>
+
+{% endblock formulario %}
+

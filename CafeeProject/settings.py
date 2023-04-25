@@ -44,7 +44,7 @@ ROOT_URLCONF = 'CafeeProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["D:\Formateo 10-3\Python\Proyectos\CafeteriaProject\CafeeProject\CaffeApp\static"],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

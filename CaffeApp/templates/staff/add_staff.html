@@ -1,0 +1,23 @@
+{% extends 'structure_short.html' %}
+
+{% block formulario %}
+
+<div class="col-lg-6">
+    <div class="contact-form">
+        <form id="product" action="{% url 'create-staff' %}" method="POST" enctype = "multipart/form-data"> {% csrf_token %}
+            <div class="container">
+                <div class="col-lg-12">
+                    <h4>Agrege su staff</h4>
+                </div>
+                {{form.as_p}}
+            <div class="form-group">
+              <fieldset>
+                <button type="submit" id="form-submit" class="main-button-icon">Agregar staff</button>
+              </fieldset>
+            </div>
+          </div>
+        </form>
+    </div>
+</div>
+
+{% endblock formulario %}
